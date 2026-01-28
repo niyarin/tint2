@@ -536,8 +536,10 @@ void handle_x_event(XEvent *e)
             break;
         for (GSList *it = systray.list_icons; it; it = it->next)
         {
-            if (((TrayWindow *)it->data)->win == e->xany.window)
+            if (((TrayWindow *)it->data)->win == e->xany.window){
                 systray_destroy_event(it->data);
+                break;
+            }
         }
         break;
 
